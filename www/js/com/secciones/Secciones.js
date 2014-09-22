@@ -108,7 +108,7 @@ function Secciones(){
 		
 	}
 	this.go = function($base_seccion, $time, $data, $guardar_historia){
-self.cerrar_desplazamiento()
+		self.cerrar_desplazamiento()
 		var guardar_historia = true;
 		if(typeof($guardar_historia) != 'undefined') guardar_historia =  $guardar_historia;
 		

@@ -120,9 +120,10 @@ position: absolute;
 	background-repeat: repeat-x;
 	background-size: 50% 100%;
     background-color: #ed1c24;
-
+  
+	
   /*  background-image: -webkit-linear-gradient(bottom, #60478b 0%, #cc3333 80%);*/
-    background-attachment:fixed;
+ 
 	
 }
 

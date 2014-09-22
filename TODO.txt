@@ -1,6 +1,8 @@
 - deep link push notification
 
 
+- dashboard boton no touchable
+
 
 - disabel combos por el tab
 
