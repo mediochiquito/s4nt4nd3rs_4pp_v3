@@ -74,6 +74,7 @@ class Push{
 
 
 $p = new Push();
-$p->enviar_push_ios('2842f7860c6d8b8e1229c2a7a462e6a70cf1dc314c264887c40b5addd29df11c', 'Titulo',  'Desc desc', 0, 3);
-$p->enviar_push_android('APA91bEfeVXrv932FAcWubC228JD6CyjHmpKX6eTm_QMf2E7phYz45ZNI1TXe_2pn7X60K_7LtbIYaccsbSJmRAjg3s-_52CACUNEsp-FbxmZFhpZ-CexukJcobzSsBba_CsxHIhpcT_je_35SH4jT-wjlPvtnFs_LsQqIJkxB4jtKi6VaIV6ow', 'Titulo', 'Desc desc', 4433);
+$p->enviar_push_ios('2842f7860c6d8b8e1229c2a7a462e6a70cf1dc314c264887c40b5addd29df11c', 'Titulo',  'Desc desc', 4433, 0);
+
+//$p->enviar_push_android('APA91bEfeVXrv932FAcWubC228JD6CyjHmpKX6eTm_QMf2E7phYz45ZNI1TXe_2pn7X60K_7LtbIYaccsbSJmRAjg3s-_52CACUNEsp-FbxmZFhpZ-CexukJcobzSsBba_CsxHIhpcT_je_35SH4jT-wjlPvtnFs_LsQqIJkxB4jtKi6VaIV6ow', 'Titulo', 'Desc desc', 4433);
 
