@@ -79,14 +79,14 @@ function App(){
 	function doCargarListas(e){
 
 
-		if(self.redirigiendo_una_push != null){
+		if(app.redirigiendo_una_push != null){
 
 
-			if(self.redirigiendo_una_push.go == 'oferta'){
+			if(app.redirigiendo_una_push.go == 'oferta'){
 
 				app.db.transaction(function (tx) {
 									
-											tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id='"+self.redirigiendo_una_push.id+"'  AND  ofertas_estado=1" , [], 
+											tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id='"+app.redirigiendo_una_push.id+"'  AND  ofertas_estado=1" , [], 
 													function (tx, resultado) {
 														if(resultado.rows.length == 1)
 										    				app.secciones.go(app.secciones.seccionunaoferta, 300, {row: resultado.rows.item(0)});
@@ -98,12 +98,12 @@ function App(){
 			}
 
 
-			if(self.redirigiendo_una_push.go == 'evento'){
+			if(app.redirigiendo_una_push.go == 'evento'){
 
 
 				app.db.transaction(function (tx) {
 									
-											tx.executeSql("SELECT * FROM eventos WHERE eventos_id='"+self.redirigiendo_una_push.id+"'  AND  eventos_estado=1" , [], 
+											tx.executeSql("SELECT * FROM eventos WHERE eventos_id='"+app.redirigiendo_una_push.id+"'  AND  eventos_estado=1" , [], 
 													function (tx, resultado) {
 														if(resultado.rows.length == 1)
 										    				app.secciones.go(app.secciones.seccionunevento, 300, {row: resultado.rows.item(0)});
@@ -255,7 +255,7 @@ function App(){
 	
    		}
 
-   		
+
    		
    		 if(navigator.geolocation) {
 
@@ -274,7 +274,6 @@ function App(){
 
 		$(self.main).css({width:self.ancho, height:self.alto})
 
-
 		self.menu = new Menu()
 		$(self.main).append(self.menu.main)
 
@@ -284,10 +283,6 @@ function App(){
 		self.header =  new Header();
 		$(self.main).append(self.header.main)
 
-		/*var fpo_320 = document.createElement('div')
-		fpo_320.id= 'fpo_320'
-		$(self.main).append(fpo_320)*/
-		
        	$(self.main).append('<div id="loading"><div id="txt_loading"></div><div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div></div>');
 		
 		$('body').append(self.main)
@@ -472,23 +467,6 @@ function App(){
 			    					});
 			    				}
 			    					
-		    				//}
-
-		    				/*
-		    						app.cargando_evento_desde_push = true;
-									app.db.transaction(function (tx) {
-									
-											tx.executeSql("SELECT * FROM eventos WHERE eventos_id='22'  AND  eventos_estado=1" , [], 
-													function (tx, resultado) {
-													
-														if(resultado.rows.length == 1)
-										    				app.secciones.go(app.secciones.seccioneventosofertas, 300, {solapa:'un_evento', row: resultado.rows.item(0)});
-										    		}
-									    	);
-
-									});	
-							*/
-
 		    				if(app.hay_internet()) verfificar_sync();
 							else $(document).trigger('CARGAR_LISTAS');
 
