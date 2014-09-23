@@ -78,41 +78,36 @@ function App(){
 	
 	function doCargarListas(e){
 
-
+		app.alerta('doCargarListas: ' + app.redirigiendo_una_push)
+		app.alerta('app.redirigiendo_una_push.go: ' + app.redirigiendo_una_push.go)
+		app.alerta('app.redirigiendo_una_push.id: ' + app.redirigiendo_una_push.id)
 		if(app.redirigiendo_una_push != null){
 
-
-			if(app.redirigiendo_una_push.go == 'oferta'){
-
-				app.db.transaction(function (tx) {
+			app.db.transaction(function (tx) {
 									
-											tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id='"+app.redirigiendo_una_push.id+"'  AND  ofertas_estado=1" , [], 
-													function (tx, resultado) {
-														if(resultado.rows.length == 1)
-										    				app.secciones.go(app.secciones.seccionunaoferta, 300, {row: resultado.rows.item(0)});
-										    		}
-									    	);
+				if(app.redirigiendo_una_push.go == 'oferta'){
+												tx.executeSql("SELECT * FROM ofertas WHERE ofertas_id='"+app.redirigiendo_una_push.id+"'  AND  ofertas_estado=1" , [], 
+														function (tx, resultado) {
+															if(resultado.rows.length == 1)
+											    				app.secciones.go(app.secciones.seccionunaoferta, 300, {row: resultado.rows.item(0)});
+											    		}
+										    	);
+											
 
-				});	
-
-			}
-
-
-			if(app.redirigiendo_una_push.go == 'evento'){
+				}
 
 
-				app.db.transaction(function (tx) {
-									
-											tx.executeSql("SELECT * FROM eventos WHERE eventos_id='"+app.redirigiendo_una_push.id+"'  AND  eventos_estado=1" , [], 
-													function (tx, resultado) {
-														if(resultado.rows.length == 1)
-										    				app.secciones.go(app.secciones.seccionunevento, 300, {row: resultado.rows.item(0)});
-										    		}
-									    	);
+				if(app.redirigiendo_una_push.go == 'evento'){
+												tx.executeSql("SELECT * FROM eventos WHERE eventos_id='"+app.redirigiendo_una_push.id+"'  AND  eventos_estado=1" , [], 
+														function (tx, resultado) {
+															if(resultado.rows.length == 1)
+											    				app.secciones.go(app.secciones.seccionunevento, 300, {row: resultado.rows.item(0)});
+											    		}
+										    	);
+					
+				}
 
-				});	
-
-			}
+			});	
 
 		}
 

@@ -166,14 +166,14 @@ function ManagePush(){
 		if(typeof($obj_push.o) !='undefined'){
 			if($obj_push.o > 0){
 				app.redirect_push_object = {go: 'oferta', id:$obj_push.o}
-				app.alerta('oferta: ' + $obj_push.o)
+			
 			}
 		}
 
 		if(typeof($obj_push.idevento) !='undefined'){
 			if($obj_push.idevento > 0){
 				app.redirect_push_object = {go: 'evento', id:$obj_push.idevento}
-				app.alerta('evento: ' + $obj_push.idevento)
+				
 			}
 		}
 	}
