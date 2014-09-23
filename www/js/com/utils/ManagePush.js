@@ -70,7 +70,7 @@ function ManagePush(){
 
 
 	function sendToken(){
-		
+		alert( self.plataform + ' , ' + self.token)
 		$.ajax({
 
 			type: "POST",

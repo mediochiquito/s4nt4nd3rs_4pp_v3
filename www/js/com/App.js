@@ -92,10 +92,7 @@ function App(){
 											    				app.secciones.go(app.secciones.seccionunaoferta, 300, {row: resultado.rows.item(0)});
 											    		}
 										    	);
-											
-
 				}
-
 
 				if(app.redirigiendo_una_push.go == 'evento'){
 												tx.executeSql("SELECT * FROM eventos WHERE eventos_id='"+app.redirigiendo_una_push.id+"'  AND  eventos_estado=1" , [], 
@@ -103,8 +100,7 @@ function App(){
 															if(resultado.rows.length == 1)
 											    				app.secciones.go(app.secciones.seccionunevento, 300, {row: resultado.rows.item(0)});
 											    		}
-										    	);
-					
+										    	);					
 				}
 
 			});	
