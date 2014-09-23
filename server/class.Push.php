@@ -26,7 +26,7 @@ class Push{
 	public function enviar_push_ios($token, $titulo, $mensaje, $idevento=0, $idoferta=0){
 		
 		$payload = array();
-		$payload['aps'] = array('e' => $idevento,'o' => $idoferta, 'alert' => $mensaje, 'badge' => intval(0), 'sound' => 'default');
+		$payload['aps'] = array('idevento' => $idevento,'o' => $idoferta, 'alert' => $mensaje, 'badge' => intval(0), 'sound' => 'default');
 		$payload = json_encode($payload);
 
 		$apns_message = chr(0) . chr(0) . chr(32) . pack('H*', str_replace(' ', '', $token)) . chr(0) . chr(strlen($payload)) . $payload;
@@ -40,7 +40,7 @@ class Push{
 	
 			$headers = array("Content-Type:" . "application/json", "Authorization:" . "key=" . $this->apiKey);
 			$data = array(
-				'data' => array('e' => $idevento,'o' => $idoferta, 'message' => $mensaje, 'title' => $titulo),
+				'data' => array('idevento' => $idevento,'o' => $idoferta, 'message' => $mensaje, 'title' => $titulo),
 				'registration_ids' => array($token)
 			);
 		 
@@ -72,11 +72,8 @@ class Push{
 	
 }
 
-/*
+
 $p = new Push();
+$p->enviar_push_ios('2842f7860c6d8b8e1229c2a7a462e6a70cf1dc314c264887c40b5addd29df11c', 'Titulo',  'Desc desc', 0, 3);
+$p->enviar_push_android('APA91bEfeVXrv932FAcWubC228JD6CyjHmpKX6eTm_QMf2E7phYz45ZNI1TXe_2pn7X60K_7LtbIYaccsbSJmRAjg3s-_52CACUNEsp-FbxmZFhpZ-CexukJcobzSsBba_CsxHIhpcT_je_35SH4jT-wjlPvtnFs_LsQqIJkxB4jtKi6VaIV6ow', 'Titulo', 'Desc desc', 4433);
 
-
-$p->enviar_push_ios('2842f7860c6d8b8e1229c2a7a462e6a70cf1dc314c264887c40b5addd29df11c', 'Titulo',  'Desc desc', 9);
-$p->enviar_push_android('APA91bEfeVXrv932FAcWubC228JD6CyjHmpKX6eTm_QMf2E7phYz45ZNI1TXe_2pn7X60K_7LtbIYaccsbSJmRAjg3s-_52CACUNEsp-FbxmZFhpZ-CexukJcobzSsBba_CsxHIhpcT_je_35SH4jT-wjlPvtnFs_LsQqIJkxB4jtKi6VaIV6ow', 'Titulo', 'Desc desc', 9);
-
-*/
