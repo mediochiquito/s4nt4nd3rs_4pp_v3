@@ -7,7 +7,7 @@ function ManagePush(){
 	var _callback = null
 	var _callback_error = null;
 
-	 this.registrar = function($callback, $callback_error){
+	this.registrar = function($callback, $callback_error){
 
 	 	if(typeof($callback) != 'undefined') _callback = $callback;
 	 	else _callback = null;
@@ -36,6 +36,7 @@ function ManagePush(){
 		}
 		else
 		{
+
 		    pushNotification.register(
 		        tokenHandler,
 		        errorHandler, {
@@ -70,7 +71,7 @@ function ManagePush(){
 
 
 	function sendToken(){
-		alert( self.plataform + ' , ' + self.token)
+		
 		$.ajax({
 
 			type: "POST",
@@ -99,14 +100,14 @@ function ManagePush(){
 	}
 	
 	function errorHandler (error) {
+		
 	  	if(_callback_error != null) _callback_error();
 	}
 
 	function tokenHandler (result) {
-	  
+		
  		self.token = result
 		sendToken();
-
 	}
 	
 	// iOS
@@ -162,17 +163,19 @@ function ManagePush(){
 
 	function objeto_recibido($obj_push){
 
-
 		if(typeof($obj_push.o) !='undefined'){
+			app.redirigiendo_una_push = true
 			if($obj_push.o > 0){
-				app.redirect_push_object = {go: 'oferta', id:$obj_push.o}
-			
+				app.redirect_push_object = {go: 'oferta', id:$obj_push.o, no_depto:true}
+				
 			}
 		}
 
 		if(typeof($obj_push.idevento) !='undefined'){
 			if($obj_push.idevento > 0){
-				app.redirect_push_object = {go: 'evento', id:$obj_push.idevento}
+				app.redirigiendo_una_push = true
+				app.redirect_push_object = {go: 'evento', id:$obj_push.idevento, no_depto:true}
+				
 				
 			}
 		}

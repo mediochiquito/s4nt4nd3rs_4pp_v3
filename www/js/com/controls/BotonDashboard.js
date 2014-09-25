@@ -10,7 +10,6 @@ function BotonDashboard($icon, $label, $callback, $color){
 	BotonDashboard_icon.className =  'BotonDashboard_icon'
 	$(this.main).append(BotonDashboard_icon)
 
-
 	var img= new Image()
 	img.src = 'img/icons_dashboards/'+$icon+'.svg'
 	$(BotonDashboard_icon).append(img)
@@ -33,7 +32,7 @@ function BotonDashboard($icon, $label, $callback, $color){
 
 		this.main.addEventListener("touchend", do_mouseout);
 		this.main.addEventListener("touchstart", do_mouseover);
-		this.main.addEventListener("touchstart", do_touchstart);
+		this.main.addEventListener("click", do_click);
 
 	}else{
 
@@ -62,8 +61,6 @@ function BotonDashboard($icon, $label, $callback, $color){
 
 	
 		setTimeout(function (){
-
-			
 			do_mouseout()
 			do_click()
 		}, 200)
