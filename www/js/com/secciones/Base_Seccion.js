@@ -12,7 +12,7 @@ function Base_Seccion(){
 		var t = $time;
 		if(typeof($time) == 'undefined') t = 300;
 		
-		$(self.main).transition({scale:2},0)
+		$(self.main).transition({scale:1.5},0)
 		$(self.main).show()
 		$(this.main).transition({
 			  x:0,
@@ -47,7 +47,6 @@ function Base_Seccion(){
 		if(typeof($time) ==  'undefined') t = 300;
 
 		$(this.main).css('pointer-events', 'none');
-
 
 		$(this.main).transition({
 			  
