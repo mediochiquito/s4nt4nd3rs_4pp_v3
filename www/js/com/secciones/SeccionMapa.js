@@ -203,7 +203,7 @@ var map_circle;
 					}
 					_slider.mostrar()
 				}else{
-					_slider.ocultar();
+					if(slider_creado) _slider.ocultar();
 					$(holdermap_canvas).css({	width: app.ancho-20, height: app.alto-120})
 					$(btn_volver.main).css({	bottom: 18})
 				}
